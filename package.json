@@ -1,0 +1,20 @@
+{
+  "name": "bolillo-pal-susto-equipo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon ./index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "mocha": "^11.0.1",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.11.5",
+    "nodemon": "^3.1.7"
+  }
+}
