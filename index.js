@@ -13,7 +13,6 @@ import productos from './src/server_functions/javascript/product_functions/crud_
 import productLoader from './src/server_functions/javascript/product_functions/product_loader.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-
 const app = express()
 
 app.set('port', process.env.PORT || 5000);
