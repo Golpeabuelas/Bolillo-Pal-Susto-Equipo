@@ -2,7 +2,6 @@ export async function procesoLlenarCard(contenedor, id_producto) {
     const producto = await obtenerDatosProducto(id_producto)
 
     llenarCard(contenedor, producto)
-    console.log(producto)
     return producto
 }
 
@@ -27,4 +26,14 @@ function llenarCard(contenedor, producto) {
             <p id="cargar_precio">${producto.precio}</p>
         </div>
     `
+}
+
+export async function procesoEditarProducto(id_producto, nombre_producto, imagen_producto, descripcion_producto, precio, categoria, cantidad) {
+    const response = await fetch('/editarProducto', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ id_producto, nombre_producto, imagen_producto, descripcion_producto, precio, categoria, cantidad })
+    })
 }

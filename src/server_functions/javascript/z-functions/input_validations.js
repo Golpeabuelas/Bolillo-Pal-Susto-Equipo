@@ -19,13 +19,13 @@ export function soloLetras (idInput) {
     idInput.value = auxiliar
 }   
 
-function soloNumeros (idInput) {
+export function soloNumeros (idInput) {
     const valorInput = idInput.value;
     let auxiliar = "";
 
     for (let i = 0; i < valorInput.length; i++) {
         if (/[^0-9]/.test(valorInput.charAt(i))) {
-            idInput.setCustomValidity('Solo caracteres numéricos (A-Z)');
+            idInput.setCustomValidity('Solo caracteres numéricos (0-9)');
             idInput.reportValidity();
             break
         }

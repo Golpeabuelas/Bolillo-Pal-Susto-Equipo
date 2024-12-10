@@ -36,19 +36,22 @@ productos.post('/borrarProducto', (req, res) => {
     });
 });
 
-productos.post('/editarProducto', (req, res) => {
-    const id = req.body.id_editar;
-    const nombre = req.body.nombre_editar;
-    const descripcion = req.body.descripcion_editar;
-    const imagen = req.body.imagen_editar;
-    const precio = req.body.precio_editar;
-    const categoria = req.body.categoria_editar;
+productos.post('/editarProducto', async (req, res) => {
+    const id_producto = req.body.id_producto
+    const nombre_producto = req.body.nombre_producto
+    const imagen_producto = req.body.imagen_producto
+    const descripcion_producto = req.body.descripcion_producto
+    const precio = req.body.precio
+    const categoria = req.body.categoria
+    const cantidad = req.body.cantidad
 
-    connection.query('UPDATE producto SET nombre = ?, descripcion = ?, imagen = ?, precio = ?, categoria = ? WHERE id_producto = ?', [nombre, descripcion, imagen, precio, categoria, id], (error, response) => {
-        if (error) {
-            return res.send(console.log('Error al actualizar el producto'));
-        }
-    });
+    try {
+        await connection.execute('UPDATE producto SET nombre_producto = ?, imagen_producto = ?, descripcion_producto = ?, precio = ?, categoria = ? cantidad = ? WHERE id_producto = ?', [nombre_producto, imagen_producto, descripcion_producto, precio, categoria, cantidad, id_producto])
+
+        return res.send(console.log('Producto editado exitosamente'))
+    } catch (error) {
+        return res.send(console.log('Error al actualizar el producto'));
+    }
 })
 
 export default productos;

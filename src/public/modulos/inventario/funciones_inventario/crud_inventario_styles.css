@@ -209,7 +209,7 @@ html, body{
     outline: none;
 }
 
-label {
+.label {
     font-family: 'Montserrat';
     width: 100%;
     height: 40px;
@@ -218,6 +218,19 @@ label {
     padding-left: 10px;
     color: #555;
     margin-bottom: 2rem;
+    display: flex; 
+    align-items: center; 
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.text_top_button {
+    font-family: 'Montserrat';
+    width: 100%;
+    height: 30px;
+    box-sizing: border-box;
+    color: #555;
+    margin-bottom: .2rem;
     display: flex; 
     align-items: center; 
     font-weight: 400;

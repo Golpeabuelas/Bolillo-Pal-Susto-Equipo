@@ -25,3 +25,22 @@ export function recordarSesion(usuario) {
 
     window.location.href = '/index'
 }
+
+export function obtenerImagen (cargarImagen, imageDefault, e) {
+    return new Promise ((resolve) => {
+        let image64x = ""
+    
+        if(e.target.files[0]){
+            const reader = new FileReader()
+
+            reader.onload = function (e){
+                image64x = e.target.result
+                cargarImagen.src = e.target.result
+                resolve(image64x)
+            }
+            reader.readAsDataURL(e.target.files[0])
+        } else{
+            cargarImagen.src = imageDefault
+        }
+    })
+}
