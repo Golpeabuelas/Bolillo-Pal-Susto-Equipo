@@ -27,8 +27,7 @@ sesiones.post('/editarUsuario', async (req, res) => {
     const permisos = req.body.permisos;
 
     try {
-        const response = await connection.execute(
-            'UPDATE usuario SET nombre = ?, password = ?, permisos = ? WHERE id_usuario = ?', [nombre, password, permisos, id_usuario]);
+        const response = await connection.execute('UPDATE usuario SET nombre = ?, password = ?, permisos = ? WHERE id_usuario = ?', [nombre, password, permisos, id_usuario]);
 
         if (response.changes === 0) {
             return res.status(404).send("Usuario no encontrado");

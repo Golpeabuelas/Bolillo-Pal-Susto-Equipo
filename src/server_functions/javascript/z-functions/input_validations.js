@@ -39,6 +39,24 @@ export function soloNumeros (idInput) {
     idInput.value = auxiliar
 }
 
+export function validarCantidad(idInput) {
+    const cantidad = parseInt(idInput.value, 10);
+
+    if (cantidad < 1) {
+        idInput.setCustomValidity('La cantidad mínima es 1');
+        idInput.reportValidity();
+        idInput.value = 1;
+    } else if (cantidad > 100) {
+        idInput.setCustomValidity('La cantidad máxima permitida es 100');
+        idInput.reportValidity();
+        idInput.value = 100;
+    } else {
+        idInput.setCustomValidity('');
+        idInput.reportValidity();
+    }
+}
+
+
 export function etiquetasFixer (idInput) {
     const valorInput = idInput.value;
     let auxiliar = "";
@@ -88,33 +106,4 @@ export function validarCorreo(correo) {
     } else {
         return true
     }
-}
-
-export function fechaPosterior (idFecha) {
-    const fecha = new Date(idFecha.value)
-    const hoy = new Date()
-    
-    fecha.setHours(0,0,0,0)
-    hoy.setHours(0,0,0,0)
-
-    if( !(fecha.getTime() > hoy.getTime()) ) {
-        return fechaAnterior(fecha, hoy, idFecha)
-    }
-
-    idFecha.setCustomValidity('La fecha todavía no ocurre, bonk')
-    idFecha.reportValidity()
-    idFecha.value = idFecha.defaultValue
-}
-
-export function fechaAnterior (fecha, hoy, idFecha) {
-    if( !(hoy.getTime() - fecha.getTime() >= 1296000000) ) {
-        idFecha.setCustomValidity('');
-        idFecha.reportValidity();
-        return true
-    }
-
-    idFecha.setCustomValidity('Esperamos que encuentres a tu amigo')
-    idFecha.reportValidity()
-    idFecha.setCustomValidity('');
-    idFecha.reportValidity();
 }

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/images/favicon.jpeg" type="image/x-icon">
-    <title>Registrate</title>
+    <title>Bolillo pal susto</title>
     
-    <link rel="stylesheet" href="/modulo/sesiones/sign_in/sign_in_styles.css">
+    <link rel="stylesheet" href="/modulo/cart/cart_styles.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
+    <header class="header" id="header">
         <div class="contenedor_logo">
             <a href="/index" class="enlace_logo"><h1 class="jerarquia_logo">Bolillo pal susto</h1></a>
         </div>
@@ -22,41 +22,45 @@
         <div class="contenedor_enlaces_navegacion">
             <a class="item_navegacion enlace" href="">CATÁLOGO</a>
             <a class="item_navegacion enlace" href="">SUCURSALES</a>
-            <a class="item_navegacion enlace" href="cotizacion" >COTIZADOR</a>
+            <a class="item_navegacion enlace" href="/cotizacion" >COTIZADOR</a>
             
             <a href=""><img class="icono_header item_navegacion" src="../images/header/buscar.png" alt=""></a>
-            <a href="sign_in"><img class="icono_header item_navegacion" src="../images/header/usuario.png" alt=""></a>
+            <a href="/sign_in"><img class="icono_header item_navegacion" src="../images/header/usuario.png" alt=""></a>
             <a href=""><img class="icono_header item_navegacion" src="../images/header/carrito.png" alt=""></a>
-        </div>
-
-        <div class="contenedor_gestionar" style="display: none;" id="gestionar">
-            
-        </div>        
-
-        <input type="hidden" id="id_cargada" name="id_cargada">
+        </div>    
     </header>
 
-    <div class="contenedor_formulario" id="form_registro">
-        <h2 class="subtitulo_formulario">REGISTRATE</h2>
-
-        <hr class="adorno_pequeño">
-        <hr class="adorno_grande">
-
-        <form>
-            <p>Nombre</p>
-            <input type="text" class="input required" id="nombre">
-
-            <p>Correo</p>
-            <input type="text" class="input required" id="correo">
-
-            <p>Contraseña</p>
-            <input type="password" class="input required" id="password">
-
-            <input type="button" value="REGISTRARSE" class="boton" style="margin-top: 2.8rem;" id="btn_sign_up">
-        </form>
-
-        <a href="sign_in" class="enlace_navegacion">¿Ya tienes cuenta? <span>¡Inicia sesión!</span></a>
+    <div class="contenedor_productos" id="contenedor_productos">
+        <div class="producto">
+            <img class="imagen_producto" src="https://via.placeholder.com/100" alt="Producto 1">
+            <div class="detalles_producto">
+                <h3 class="nombre_producto">Bolillo clásico</h3>
+                <p class="descripcion_producto">Delicioso bolillo para cualquier ocasión.</p>
+                <p class="precio_producto">$20.00</p>
+            </div>
+            <div class="acciones_producto">
+                <div class="producto_cantidad">
+                    <button class="btn_cantidad">-</button>
+                    <input type="text" class="input_cantidad">
+                    <button class="btn_cantidad">+</button>
+                </div>
+                <button class="boton_accion">Eliminar</button>
+            </div>
+        </div>
+    
+        <div class="producto">
+            <img class="imagen_producto" src="https://via.placeholder.com/100" alt="Producto 2">
+            <div class="detalles_producto">
+                <h3 class="nombre_producto">Bolillo relleno</h3>
+                <p class="descripcion_producto">Bolillo relleno de frijoles y queso.</p>
+                <p class="precio_producto">$30.00</p>
+            </div>
+            <div class="acciones_producto">
+                <button class="boton_accion">Eliminar</button>
+            </div>
+        </div>
     </div>
+    
 
     <footer class="footer">
         <div class="contenedor_decoracion_footer">
@@ -96,4 +100,4 @@
 </body>
 </html>
 
-<script type="module" src="/scripts/javascript/user_functions/sign_up/consts_sign_up.js"></script>
+<script type="module" src="/scripts/javascript/cart_functions/consts_cart.js"></script>

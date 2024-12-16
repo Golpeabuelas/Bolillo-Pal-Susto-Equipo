@@ -27,4 +27,8 @@ router.get('/producto/:id', (req, res) => {
     res.sendFile(join(__dirname, '../public/modulos/inventario/funciones_inventario/crud_inventario.html'));
 });
 
+router.get('/carrito', (req, res) => {
+    res.sendFile(join(__dirname, '../public/modulos/cart/cart.html'))
+})
+
 export default router;
