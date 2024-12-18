@@ -31,4 +31,8 @@ router.get('/carrito', (req, res) => {
     res.sendFile(join(__dirname, '../public/modulos/cart/cart.html'))
 })
 
+router.get('/producto/detalle/:nombre', (req, res) => {
+    res.sendFile(join(__dirname, '../public/modulos/index/client_product/client_product.html'))
+})
+
 export default router;

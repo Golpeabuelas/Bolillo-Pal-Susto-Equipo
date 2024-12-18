@@ -12,6 +12,14 @@ import userLoader from './src/server_functions/javascript/user_functions/user_lo
 import productos from './src/server_functions/javascript/product_functions/crud_product.js';
 import productLoader from './src/server_functions/javascript/product_functions/product_loader.js';
 
+import cartLoader from './src/server_functions/javascript/cart_functions/cart_loader.js';
+import ticketLoader from './src/server_functions/javascript/ticket_functions/ticket_loader.js';
+import detailLoader from './src/server_functions/javascript/ticket_functions/ticket_detail_loader.js';
+
+import connection from './src/server_functions/connection.js';
+
+const response = await connection.execute(`SELECT * FROM detalle_pedido`)
+console.log(response)
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const app = express()
 
@@ -32,6 +40,10 @@ app.use(userLoader)
 
 app.use(productos)
 app.use(productLoader)
+
+app.use(cartLoader)
+app.use(ticketLoader)
+app.use(detailLoader)
 
 app.get('/', (req, res) => {
     res.sendFile(join(__dirname, './src/public/modulos/index/index.html'))

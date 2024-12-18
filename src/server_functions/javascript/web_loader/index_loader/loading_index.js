@@ -26,7 +26,7 @@ function mostrarProductos(contenedor, productos) {
     for (let i = 0; i < productos.length; i++) {
         if ( productos[i].cantidad > 0 ) {
             contenedor.innerHTML += ` 
-                <div class="contenedor_producto">
+                <div class="contenedor_producto" data-value="${productos[i].id_producto}">
                     <img src="${productos[i].imagen_producto}" class="imagen_producto">
                     
                     <div class="contenedor_datos_producto">
