@@ -1,8 +1,10 @@
 export async function procesoCrearTicket(id_usuario) {
-    //const id_pedido = await crearPedido(id_usuario)
+    const id_pedido = await crearPedido(id_usuario)
 
-    await procesoCrearDetallePedido(1, id_usuario)
-    //HACER DETALLE PEDIDO
+    const registros = await procesoCrearDetallePedido(id_pedido, id_usuario)
+
+
+
     //MODIFICAR TOTAL DEL PEDIDO
     //ELIMINAR TODOS LOS PRODUCTOS DEL CARRITO QUE YA SE COMPRARON
 }
@@ -26,6 +28,7 @@ async function procesoCrearDetallePedido(id_pedido, id_usuario) {
     const productos = await obtenerDatosProductos(registros)
 
     await agregarProductoAlPedido(id_pedido, productos, registros)
+    return registros
 }
 
 async function obtenerRegistrosAgregados(id_usuario) {
@@ -75,5 +78,12 @@ async function agregarProductoAlPedido(id_pedido, productos, registros) {
             },
             body: JSON.stringify({ id_pedido, id_producto, cantidad, subtotal })
         })
+    }
+}
+
+async function eliminarProductoCarrito(registros) {
+    for (let i = 0; i < registros.length; i++) {
+        const id_producto = null
+        
     }
 }
