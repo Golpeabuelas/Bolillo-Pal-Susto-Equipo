@@ -28,4 +28,16 @@ ticketLoader.post('/actualizarTotal', async (req, res) => {
     }
 })
 
+ticketLoader.post('/obtenerTicket', async (req, res) => {
+    const id_usuario = req.body.id_usuario
+
+    try {
+        const respuesta = await connection.execute('SELECT * FROM pedido WHERE id_usuario = ?', [id_usuario])
+
+        return res.json(parseInt(respuesta.rows))
+    } catch (error) {
+        return res.send(console.log('Error al crear pedido'))
+    }
+})
+
 export default ticketLoader

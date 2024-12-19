@@ -4,10 +4,10 @@ export async function procesoCrearTicket(id_usuario) {
     const registros = await procesoCrearDetallePedido(id_pedido, id_usuario)
 
     const total = await calcularTotal(id_pedido)
-    alert('llega')
-    return 'puto'
-    //MODIFICAR TOTAL DEL PEDIDO
-    //ELIMINAR TODOS LOS PRODUCTOS DEL CARRITO QUE YA SE COMPRARON
+    
+    await modificarTotal(id_pedido, total)
+
+    await eliminarProductosCarrito(registros)
 }
 
 async function crearPedido(id_usuario) {
@@ -93,17 +93,40 @@ async function calcularTotal(id_pedido) {
     })
 
     const total = response.json()
-    calculoTotal(total) 
-    return 
+    const Total = calculoTotal(total) 
+    return Total
 }
 
 function calculoTotal(total) {
-    console.log(total)
+    let Total = 0
+    for (let i = 0; i < total.length; i++) {
+        Total += total[i].subtotal
+    }
+
+    return Total
 }
 
 async function eliminarProductosCarrito(registros) {
     for (let i = 0; i < registros.length; i++) {
-        const id_producto = null
-        
+        const id_usuario = registros[i].id_usuario
+        const id_producto = registros[i].id_producto
+
+        await fetch('/eliminarProductoCarrito', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id_usuario, id_producto })
+        })
     }
+}
+
+async function modificarTotal(id_pedido, total) {
+    await fetch('/actualizarTotal', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ id_pedido, total })
+    })
 }

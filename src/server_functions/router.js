@@ -35,4 +35,9 @@ router.get('/producto/detalle/:nombre', (req, res) => {
     res.sendFile(join(__dirname, '../public/modulos/index/client_product/client_product.html'))
 })
 
+router.get('/ticket', (req, res) => {
+    res.sendFile(join(__dirname, '../public/modulos/ticket/ticket.html'))
+})
+
+
 export default router;

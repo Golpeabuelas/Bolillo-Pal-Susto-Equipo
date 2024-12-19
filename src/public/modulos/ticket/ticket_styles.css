@@ -1,0 +1,275 @@
+
+.ticket {
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    font-size: 1rem;
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    flex-direction: column;
+    margin: 5vw;
+}
+
+.ticket-header {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.ticket-title {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.8rem;
+    margin: 0;
+    color: #333;
+}
+
+.ticket-date {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.ticket-body {
+    margin-bottom: 20px;
+}
+
+.ticket-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-weight: 300;
+}
+
+.ticket-label {
+    color: #666;
+}
+
+.ticket-value {
+    color: #333;
+}
+
+.ticket-footer {
+    text-align: center;
+}
+
+.ticket-note {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #333;
+}
+
+
+*{
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #fdfdfd;
+}
+
+/*------------------------Header------------------------------*/
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 1.5rem;
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+.contenedor_enlaces_navegacion {
+    display: flex;
+    margin-right: 30px;
+    align-items: center;
+}
+
+.contenedor_logo{
+    min-height: 90px; 
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+
+.jerarquia_logo {
+    font-family: 'Pacifico', cursive;
+    font-weight: 100;
+    font-size: 2rem;
+    margin-block: 0;
+}
+
+.enlace_logo {
+    text-decoration: none;
+    color: #444;
+}
+
+.enlace {
+    color: #444;
+    font-size: 1rem;
+}
+
+.item_navegacion {
+    margin-left: 1.5rem;
+}
+
+.icono_header {
+    width: 25px;
+}
+
+.icono_header:hover{
+    width: 25px;
+    border-bottom: 1px solid #444;
+}
+
+.item_navegacion:hover{
+    font-weight: bold;
+    color: #000;
+}
+
+.contenedor_gestionar {
+    display: flex;
+    align-items: center;
+}
+
+.contenedor_gestionar:hover .icono_header{
+    width: 25px;
+    border-bottom: 1px solid #444;
+}
+
+.contenedor_gestionar:hover .item_navegacion{
+    font-weight: bold;
+    color: #000;
+}
+
+.contenedor_inventario {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.contenedor_producto {
+    width: 20vw;
+    min-width: 204px;
+    margin: 1.5rem;
+    box-shadow: 0 4px 10px #888;
+}
+
+.imagen_producto {
+    width: 100%;
+}
+
+.contenedor_datos_producto {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    padding-inline: 5px;
+}
+
+.contenedor_datos_producto h2, .contenedor_datos_producto p {
+    font-family: 'Montserrat', sans-serif;
+    color: #666;
+    font-weight: 300;
+    font-size: 1.3rem;
+}
+
+.footer {
+    background-color: #f0f0f0;
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 3rem;
+    padding-bottom: 5rem;
+    justify-content: space-between;
+}
+
+.contenedor_decoracion_footer {
+    max-width: 650px;
+    min-width: 400px;
+    margin-bottom: 1rem;
+    margin-left: 3rem;
+    flex: 0 1 auto;
+}
+
+.imagen_decorativa {
+    width: 100%;
+}
+
+.texto_footer {
+    font-style: italic;
+    font-weight: 400;
+    margin-top: 1rem;
+}
+
+.contenedor_enlaces_footer {
+    flex: 0 1 15%;
+    min-width: 150px;
+    max-width: 160px;
+    margin-bottom: 1rem;
+    margin-inline: 1rem;
+}
+
+.enlace_footer_importante{
+    font-weight: bold;
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.enlace_footer {
+    color: #444;
+    font-weight: 300;
+    font-size: 1rem;
+    display: block;
+    margin-top: 1rem;
+}
+
+.contenedor_redes_sociales {
+    display: flex;
+    flex: 0 1 15%;
+    flex-direction: column;
+    align-items: center;
+    max-width: 160px;
+}
+
+.contenedor_iconos_redes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+.img_footer {
+    width: 25px;
+    margin: 0 0.5rem;
+}
+
+.enlace_footer:hover {
+    color: #c1c1c1;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+    .decoracion_footer {
+        flex: 1 1 30%;
+    }
+
+    .enlaces_footer {
+        flex: 1 1 20%;
+        margin-left: 10px; 
+    }
+
+    .redes_sociales {
+        flex: 1 1 20%;
+    }
+}
