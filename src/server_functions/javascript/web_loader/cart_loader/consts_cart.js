@@ -56,6 +56,7 @@ for (let i = 0; i < btnDisminuirCantidad.length; i++) {
     })
 }
 
-btnHacerPedido.addEventListener('click', () => {
-    procesoCrearTicket(Usuario.id_usuario)
+btnHacerPedido.addEventListener('click', async () => {
+    await procesoCrearTicket(Usuario.id_usuario)
+    alert('tomachangotubanana')
 })

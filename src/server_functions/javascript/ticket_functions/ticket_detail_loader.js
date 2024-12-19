@@ -31,4 +31,16 @@ detailLoader.post('/actualizarTotal', async (req, res) => {
     }
 })
 
+detailLoader.post('/obtenerRegistrosConPedido', async (req, res) => {
+    const id_pedido = req.body.id_pedido
+
+    try {
+        const response = await connection.execute('SELECT * FROM detalle_pedido WHERE id_pedido = ?', [id_pedido])
+
+        return res.json(response.rows)
+    } catch (error) {
+        return res.send(console.log('Error al obtener los detalles del pedido'))
+    }
+})
+
 export default detailLoader

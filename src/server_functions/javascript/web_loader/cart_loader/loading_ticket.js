@@ -3,8 +3,9 @@ export async function procesoCrearTicket(id_usuario) {
 
     const registros = await procesoCrearDetallePedido(id_pedido, id_usuario)
 
-
-
+    const total = await calcularTotal(id_pedido)
+    alert('llega')
+    return 'puto'
     //MODIFICAR TOTAL DEL PEDIDO
     //ELIMINAR TODOS LOS PRODUCTOS DEL CARRITO QUE YA SE COMPRARON
 }
@@ -71,7 +72,7 @@ async function agregarProductoAlPedido(id_pedido, productos, registros) {
         const cantidad = registros[i].cantidad
         const subtotal = parseInt(registros[i].cantidad) * parseInt(productos[i][0].precio)
         
-        await fetch('/', {
+        await fetch('/crearRegistrosDetalle', {
             method: 'POST', 
             headers: {
                 'Content-Type': 'application/json'
@@ -81,7 +82,26 @@ async function agregarProductoAlPedido(id_pedido, productos, registros) {
     }
 }
 
-async function eliminarProductoCarrito(registros) {
+
+async function calcularTotal(id_pedido) {
+    const response = await fetch('/obtenerRegistrosConPedido', {
+        method: 'POST', 
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ id_pedido })
+    })
+
+    const total = response.json()
+    calculoTotal(total) 
+    return 
+}
+
+function calculoTotal(total) {
+    console.log(total)
+}
+
+async function eliminarProductosCarrito(registros) {
     for (let i = 0; i < registros.length; i++) {
         const id_producto = null
         

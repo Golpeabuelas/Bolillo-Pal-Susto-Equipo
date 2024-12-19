@@ -18,7 +18,8 @@ import detailLoader from './src/server_functions/javascript/ticket_functions/tic
 
 import connection from './src/server_functions/connection.js';
 
-const response = await connection.execute(`SELECT * FROM detalle_pedido`)
+//const response = await connection.execute('DELETE FROM pedido')
+const response = await connection.execute(`SELECT * FROM pedido`)
 console.log(response)
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const app = express()
